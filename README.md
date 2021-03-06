@@ -1,1 +1,1 @@
-# my_repository
+# repository for exercise solutions
