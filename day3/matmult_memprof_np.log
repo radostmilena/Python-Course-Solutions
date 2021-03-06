@@ -1,0 +1,31 @@
+Filename: matmult_np.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+     4   47.949 MiB   47.949 MiB           1   @profile
+     5                                         def getInput(N):
+     6   48.445 MiB    0.496 MiB           1       X = np.random.rand(N, N)
+     7   48.961 MiB    0.516 MiB           1       Y = np.random.rand(N, N+1)
+     8   48.961 MiB    0.000 MiB           1       return X, Y
+
+
+Filename: matmult_np.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    10   48.961 MiB   48.961 MiB           1   @profile
+    11                                         def multMatrix(X, Y):
+    12   50.410 MiB    1.449 MiB           1        result = np.dot(X, Y)
+    13   50.410 MiB    0.000 MiB           1        return result
+
+
+Filename: matmult_np.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    15   50.410 MiB   50.410 MiB           1   @profile
+    16                                         def printRes(result):
+    17   50.410 MiB    0.000 MiB         251       for r in result:
+    18   50.410 MiB    0.000 MiB         250           print(r)
+
+
