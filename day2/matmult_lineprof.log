@@ -1,0 +1,73 @@
+Wrote profile results to matmult.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 0.473452 s
+File: matmult.py
+Function: getX at line 4
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     4                                           @profile
+     5                                           def getX(N):
+     6                                           # NxN matrix
+     7         1          2.0      2.0      0.0      X = []
+     8       251        236.0      0.9      0.0      for i in range(N):
+     9       250     473214.0   1892.9     99.9          X.append([random.randint(0,100) for r in range(N)])
+    10         1          0.0      0.0      0.0      return X
+
+Total time: 0.475752 s
+File: matmult.py
+Function: getY at line 12
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    12                                           @profile
+    13                                           def getY(N):
+    14                                           # Nx(N+1) matrix
+    15         1          1.0      1.0      0.0      Y = []
+    16       251        244.0      1.0      0.1      for i in range(N):
+    17       250     475506.0   1902.0     99.9          Y.append([random.randint(0,100) for r in range(N+1)])
+    18         1          1.0      1.0      0.0      return Y
+
+Total time: 0.000657 s
+File: matmult.py
+Function: generateMatrix at line 20
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    20                                           @profile
+    21                                           def generateMatrix(N):
+    22                                           # result is Nx(N+1)
+    23         1          0.0      0.0      0.0      result = []
+    24       251        131.0      0.5     19.9      for i in range(N):
+    25       250        525.0      2.1     79.9          result.append([0] * (N+1))
+    26         1          1.0      1.0      0.2      return result
+
+Total time: 22.9446 s
+File: matmult.py
+Function: multMatrix at line 28
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    28                                           @profile
+    29                                           def multMatrix(X, Y, result):
+    30                                           # iterate through rows of X
+    31       251        131.0      0.5      0.0      for i in range(len(X)):
+    32                                               # iterate through columns of Y
+    33     63000      32057.0      0.5      0.1          for j in range(len(Y[0])):
+    34                                                   # iterate through rows of Y
+    35  15750250    8110099.0      0.5     35.3              for k in range(len(Y)):
+    36  15687500   14802354.0      0.9     64.5                  result[i][j] += X[i][k] * Y[k][j]
+    37         1          0.0      0.0      0.0      return result
+
+Total time: 0.018015 s
+File: matmult.py
+Function: printRes at line 39
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    39                                           @profile
+    40                                           def printRes(result):
+    41       251        175.0      0.7      1.0      for r in result:
+    42       250      17840.0     71.4     99.0          print(r)
+

@@ -1,0 +1,43 @@
+Filename: matmult_improved.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+     4   36.965 MiB   36.965 MiB           1   @profile
+     5                                         def genInput(N):
+     6                                         # NxN matrix
+     7   36.965 MiB    0.000 MiB           1       X = []
+     8   36.965 MiB    0.000 MiB           1       Y = []
+     9   36.965 MiB    0.000 MiB           1       result = []
+    10   38.406 MiB    0.000 MiB         251       for i in range(N):
+    11   38.406 MiB    0.516 MiB       63250           X.append([random.randint(0,100) for r in range(N)])
+    12   38.406 MiB    0.258 MiB       63500           Y.append([random.randint(0,100) for r in range(N+1)])
+    13   38.406 MiB    0.668 MiB         250           result.append([0] * (N+1))
+    14   38.406 MiB    0.000 MiB           1       return X, Y, result
+
+
+Filename: matmult_improved.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    16   38.406 MiB   38.406 MiB           1   @profile
+    17                                         def multMatrix(X, Y, result):
+    18                                         # iterate through rows of X
+    19   40.199 MiB    0.000 MiB         251       for i in range(len(X)):
+    20                                             # iterate through columns of Y
+    21   40.199 MiB    0.000 MiB       63000           for j in range(len(Y[0])):
+    22                                                 # iterate through rows of Y
+    23   40.199 MiB    0.000 MiB    15750250               for k in range(len(Y)):
+    24   40.199 MiB    1.793 MiB    15687500                   result[i][j] += X[i][k] * Y[k][j]
+    25   40.199 MiB    0.000 MiB           1       return result
+
+
+Filename: matmult_improved.py
+
+Line #    Mem usage    Increment  Occurences   Line Contents
+============================================================
+    27   40.199 MiB   40.199 MiB           1   @profile
+    28                                         def printRes(result):
+    29   40.199 MiB    0.000 MiB         251       for r in result:
+    30   40.199 MiB    0.000 MiB         250           print(r)
+
+
